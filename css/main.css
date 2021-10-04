@@ -5,6 +5,7 @@ body {
     font-weight: 400;
     line-height: 1.4;
     font-family: 'Nanum Gothic', sans-serif;
+    height: 3000px;
 }
 img {
     display: block;    
@@ -16,7 +17,60 @@ a {
     width: 1100px;
     margin: 0 auto;
     position: relative;
-    /* height: 120px; */
+    height: 120px;
+}
+.btn {
+    width: 130px;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    /* padding이 추가되도 버튼이 커지지 않도록 함. */
+    box-sizing: border-box;
+    /* a태그나, span태그에 버튼요소를 넣어도 버튼모양이 나오게 한다. */
+    display: block;
+    transition: .4s;
+}
+.btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+/* btn의 reverse된 상태를 의미 */
+.btn.btn--reverse {
+    background-color: #333;
+    color: #fff;
+}
+.btn.btn--reverse:hover {
+    background-color: transparent;
+    color: #333;
+}
+.btn.btn--brown {
+    color: #592B18;
+    border-color: #592B18;
+}
+.btn.btn--brown:hover {
+    color: #fff;
+    background-color: #592B18;
+}
+.btn.btn--gold {
+    color:#D9AA8A;
+    border-color: #D9AA8A;
+}
+.btn.btn--gold:hover {
+    color:#fff;
+    border-color: #D9AA8A;
+}
+.btn.btn--white {
+    color: #fff;
+    border-color: #fff;
+}
+.btn.btn--white:hover {
+    color: #333;
+    background-color: #fff;
 }
 
 /* HEADER */
@@ -24,6 +78,9 @@ header {
     width: 100%;
     background-color: #f6f5f0;
     border-bottom: 1px solid #c8c8c8;
+    position: fixed;
+    top: 0;
+    z-index: 9;
 }
 header > .inner {
     height: 120px;
@@ -169,7 +226,61 @@ header .main-menu .item .item__contents .contents__texture p {
     color: #669900;
     margin: 4px 0 14px;
 }
+header .badges {
+    position: absolute;
+    top: 132px;
+    right: 12px;
+}
+header .badges .badge {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, .15);
+    cursor: pointer;
+}
 
-
-
-
+/* VISUAL */
+.visual {
+    margin-top: 120px;
+    background-image: url("../images/visual_bg.jpg");
+    background-position: center;
+}
+.visual .inner {
+    height: 646px;
+}
+.visual .title {
+    position: absolute;
+    top: 88px;
+    left: -10px;
+}
+.visual .title .btn {
+    position: absolute;
+    top: 260px;
+    left: 173px;
+}
+/* cup1이라는 class도 가지고 있으면서 image라는 클래스도 둘다 가지고 있는 요소를 지정 */
+.visual .cup1.image {
+    position: absolute;
+    bottom: 0;
+    right: -47px;
+}
+.visual .cup1.text {
+    position: absolute;
+    top: 38px;
+    right: 171px;
+}
+.visual .cup2.image {
+     position: absolute;
+     bottom: 0;
+     right: 162px;
+}
+.visual .cup2.text {
+    position: absolute;
+    top: 321px;
+    right: 416px;
+}
+.visual .spoon {
+    position: absolute;
+    bottom: 0;
+    left: 275px;
+}
