@@ -37,3 +37,21 @@ window.addEventListener('scroll', _.throttle(function () {
         });
     }
 }, 300));
+
+const fadeEls = document.querySelectorAll('.visual .fade-in');
+//fadeEls 의 요소에 갯수만큼 function을 돌린다.
+// gasp.to(요소, 지속시간, 옵션); 
+fadeEls.forEach(function (fadeEl, index) {
+    gsap.to(fadeEl, 1, {
+        delay: (index + 1) * .7,    // 0.7, 1.4, 2.1, 2.7 순차적으로 딜레이가 생기기 위한 코드
+        opacity: 1
+    });
+});
+
+// new Swiper(선택자, 옵션)
+// JS에서 많이 쓰이는 웹 프론트엔드 라이브러리
+const swiper = new Swiper('.notice-line .swiper-container', {
+    direction: 'vertical',
+    autoplay: true,
+    loop: true,
+});
