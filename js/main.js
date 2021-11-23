@@ -5,17 +5,22 @@ searchEl.addEventListener('click', function () {
     //Logic..
     searchInputEl.focus();
 });
-
 searchInputEl.addEventListener('focus', function () {
     searchEl.classList.add('focused');
     searchInputEl.setAttribute('placeholder', '통합검색');
 });
-
 searchInputEl.addEventListener('blur', function () {
     searchEl.classList.remove('focused');
     searchInputEl.setAttribute('placeholder', '');
 });
 
+
+
+/*
+=======
+GSAP
+=======
+*/
 // 함수가 계속 실행되는 것을 0.3초의 텀을 주는 역할
 // lodash라는 javascript library를 통해 throttle이라는 메소드 사용 가능
 // _.throttle(함수, 시간)
@@ -46,32 +51,6 @@ fadeEls.forEach(function (fadeEl, index) {
         delay: (index + 1) * .7,    // 0.7, 1.4, 2.1, 2.7 순차적으로 딜레이가 생기기 위한 코드
         opacity: 1
     });
-});
-
-// new Swiper(선택자, 옵션)
-// JS에서 많이 쓰이는 웹 프론트엔드 라이브러리
-new Swiper('.notice-line .swiper-container', {
-    direction: 'vertical',
-    autoplay: true,
-    loop: true,
-});
-
-new Swiper('.promotion .swiper-container', {
-    slidesPerView: 3,   // 한번에 보여줄 슬라이드 개수
-    spaceBetween: 10,   // 슬라이드 사이 여백
-    centeredSlides: true,
-    loop: true,
-    autoplay: {
-        delay: 5000
-    },
-    pagination: {
-        el: '.promotion .swiper-pagination', // 페이지 번호 요소 선택자
-        clickable: true // 사용자의 페이지 번호 요소 제어 가능 여부
-    },
-    navigation: {
-        prevEl: '.promotion .swiper-prev',
-        nextEl: '.promotion .swiper-next'
-    }
 });
 
 const promotionEl = document.querySelector('.promotion');
@@ -108,6 +87,57 @@ function floatingObject(selector, delay, size) {
 
         });
 }
+
+
+/*
+=======
+Swiper
+=======
+*/
+// new Swiper(선택자, 옵션)
+// JS에서 많이 쓰이는 웹 프론트엔드 라이브러리
+new Swiper('.notice-line .swiper-container', {
+    direction: 'vertical',
+    autoplay: true,
+    loop: true,
+});
+
+new Swiper('.promotion .swiper-container', {
+    slidesPerView: 3,   // 한번에 보여줄 슬라이드 개수
+    spaceBetween: 10,   // 슬라이드 사이 여백
+    centeredSlides: true,
+    loop: true,
+    autoplay: {
+        delay: 5000
+    },
+    pagination: {
+        el: '.promotion .swiper-pagination', // 페이지 번호 요소 선택자
+        clickable: true // 사용자의 페이지 번호 요소 제어 가능 여부
+    },
+    navigation: {
+        prevEl: '.promotion .swiper-prev',
+        nextEl: '.promotion .swiper-next'
+    }
+});
+
 floatingObject('.floating1', 1, 15);
 floatingObject('.floating2', .5, 15);
 floatingObject('.floating3', 1.5, 20);
+
+
+
+/*
+=======
+Scroll Magic
+=======
+*/
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach(function (spyEl) {
+    new ScrollMagic
+    .Scene({
+        triggerElement: spyEl,       // 보여짐 여부를 감시할 요소를 지정
+        triggerHook: .8
+    })
+    .setClassToggle(spyEl, 'show')      // 각 section에 show 클래스명 추가
+    .addTo(new ScrollMagic.Controller());
+});

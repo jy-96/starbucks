@@ -75,6 +75,37 @@ a {
 }
 
 
+/*
+Scroll Magic
+*/
+.back-to-position {
+    opacity: 0;
+    transition: 1s;
+}
+.back-to-position.to-right {
+    transform: translateX(-150px);
+}
+.back-to-position.to-left {
+    transform: translateX(150px);
+}
+.show .back-to-position {
+    opacity: 1;
+    transform: translateX(0);
+}
+.show .back-to-position.delay-0 {
+    transition-delay: 0s;
+}
+.show .back-to-position.delay-1 {
+    transition-delay: .3s;
+}
+.show .back-to-position.delay-2 {
+    transition-delay: .6s;
+}
+.show .back-to-position.delay-3 {
+    transition-delay: .9s;
+}
+
+
 /* HEADER */
 header {
     width: 100%;
@@ -689,4 +720,48 @@ header .badges .badge {
     left: 0;
     right: 0;
     margin: auto;
+}
+
+
+
+/* FIND STORE */
+.find-store {
+    background-image: url("../images/find_store_bg.jpg");
+}
+.find-store .inner {
+    height: 400px;
+}
+.find-store .inner .texture1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.find-store .inner .texture2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.find-store .inner .picture1,
+.find-store .inner .picture2 {
+    border-radius: 50%;
+}
+.find-store .inner .picture1 {
+    position: absolute;
+    top: -60px;
+}
+.find-store .inner .picture2 {
+    position: absolute;
+    top: 150px;
+    left: 250px;
+}
+
+.find-store .inner .text-group {
+    position: absolute;
+    top: 120px;
+    right: 165px;
+}
+.find-store .inner .text-group .title,
+.find-store .inner .text-group .description {
+    margin: 0 0 20px 0;
 }
